@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double usdToInr = 74.5;
+        double eurToInr = 88.2;
+        System.out.println("Select base currency:");
+        System.out.println("1. USD");
+        System.out.println("2. EUR");
+        int baseChoice = scanner.nextInt();
+        System.out.print("Enter the amount to convert: ");
+        double amount = scanner.nextDouble();
+        double convertedAmount;
+        String targetCurrencySymbol;
+        if (baseChoice == 1) {
+            convertedAmount = amount * usdToInr;
+            targetCurrencySymbol = "INR";
+        } else if (baseChoice == 2) {
+            convertedAmount = amount * eurToInr;
+            targetCurrencySymbol = "INR";
+        } else {
+            System.out.println("Invalid choice. Please select 1 or 2.");
+            return;
+        }
+        System.out.printf("%.2f %s = %.2f %s%n", amount, baseChoice == 1 ? "USD" : "EUR", convertedAmount, targetCurrencySymbol);
+    }
+}
